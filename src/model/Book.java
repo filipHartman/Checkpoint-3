@@ -6,16 +6,16 @@ public class Book {
     private Author author;
     private String title;
     private BookPublisher publisher;
-    private int publication_year;
+    private int publicationYear;
     private float price;
     private BookType bookType;
 
-    public Book(float ISBN, Author author, String title, BookPublisher publisher, int publication_year, float price, BookType bookType) {
+    public Book(float ISBN, Author author, String title, BookPublisher publisher, int publicationYear, float price, BookType bookType) {
         this.ISBN = ISBN;
         this.author = author;
         this.title = title;
         this.publisher = publisher;
-        this.publication_year = publication_year;
+        this.publicationYear = publicationYear;
         this.price = price;
         this.bookType = bookType;
     }
@@ -52,12 +52,12 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public int getPublication_year() {
-        return publication_year;
+    public int getPublicationYear() {
+        return publicationYear;
     }
 
-    public void setPublication_year(int publication_year) {
-        this.publication_year = publication_year;
+    public void setPublicationYear(int publicationYear) {
+        this.publicationYear = publicationYear;
     }
 
     public float getPrice() {
@@ -74,5 +74,14 @@ public class Book {
 
     public void setBookType(BookType bookType) {
         this.bookType = bookType;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Book: Title: %s, %d,Price: %.2f, ISBN: %f\n" +
+                        "%s\n%s\n%s",
+                title, publicationYear, price, ISBN,
+                author, publisher, bookType);
     }
 }
