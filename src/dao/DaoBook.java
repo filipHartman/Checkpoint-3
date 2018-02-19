@@ -23,7 +23,7 @@ public class DaoBook {
             ps.setString(1, ISBN);
             ResultSet rs = ps.executeQuery();
             if (!rs.isClosed()) {
-                book = createBookFromDBData(rs, ISBN);
+                book = createBookFromDBData(rs);
             }
             rs.close();
             ps.close();
@@ -34,7 +34,8 @@ public class DaoBook {
         return book;
         }
 
-    private Book createBookFromDBData(ResultSet rs, String ISBN) throws SQLException{
+    private Book createBookFromDBData(ResultSet rs) throws SQLException{
+        String ISBN = rs.getString("ISBN");
         int authorId = rs.getInt("author");
         Author author = getAuthorOfBook(authorId);
         String title = rs.getString("title");
