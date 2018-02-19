@@ -8,6 +8,7 @@ import model.BookType;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DaoBook {
     public Book createBook(String ISBN, Author author, String title, BookPublisher publisher, int publicationYear, float price, BookType bookType) {
@@ -32,7 +33,27 @@ public class DaoBook {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             }
         return book;
+    }
+
+    public ArrayList<Book> importAllBooks() {
+        ArrayList<Book> books = new ArrayList<>();
+        PreparedStatement ps = null;
+        String query = "SELECT * FROM Books ORDER BY title ASC";
+        try{
+            ps = DBConnection.getConnection().prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Book book = createBookFromDBData(rs);
+                books.add(book);
+
+            }
+            rs.close();
+            ps.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
         }
+        return books;
+    }
 
     private Book createBookFromDBData(ResultSet rs) throws SQLException{
         String ISBN = rs.getString("ISBN");
@@ -45,7 +66,6 @@ public class DaoBook {
         float price = rs.getFloat("price");
         int typeId = rs.getInt("type");
         BookType type = getTypeOfBook(typeId);
-
 
         Book book = createBook(
                 ISBN, author, title, publisher, publicationYear, price, type);
