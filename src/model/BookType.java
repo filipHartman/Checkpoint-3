@@ -27,6 +27,6 @@ public class BookType {
 
     @Override
     public String toString() {
-        return "Book type: id: " + typeId + ", " + type;
+        return "Book type: ID: " + typeId + ", " + type;
     }
 }
