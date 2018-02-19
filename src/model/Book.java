@@ -3,14 +3,14 @@ package model;
 
 public class Book {
     private float ISBN;
-    private String author;
+    private Author author;
     private String title;
     private BookPublisher publisher;
     private int publication_year;
     private float price;
     private BookType bookType;
 
-    public Book(float ISBN, String author, String title, BookPublisher publisher, int publication_year, float price, BookType bookType) {
+    public Book(float ISBN, Author author, String title, BookPublisher publisher, int publication_year, float price, BookType bookType) {
         this.ISBN = ISBN;
         this.author = author;
         this.title = title;
@@ -28,11 +28,11 @@ public class Book {
         this.ISBN = ISBN;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 
