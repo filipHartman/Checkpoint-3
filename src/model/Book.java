@@ -2,7 +2,7 @@ package model;
 
 
 public class Book {
-    private float ISBN;
+    private String ISBN;
     private Author author;
     private String title;
     private BookPublisher publisher;
@@ -10,7 +10,7 @@ public class Book {
     private float price;
     private BookType bookType;
 
-    public Book(float ISBN, Author author, String title, BookPublisher publisher, int publicationYear, float price, BookType bookType) {
+    public Book(String ISBN, Author author, String title, BookPublisher publisher, int publicationYear, float price, BookType bookType) {
         this.ISBN = ISBN;
         this.author = author;
         this.title = title;
@@ -20,11 +20,11 @@ public class Book {
         this.bookType = bookType;
     }
 
-    public float getISBN() {
+    public String getISBN() {
         return ISBN;
     }
 
-    public void setISBN(float ISBN) {
+    public void setISBN(String ISBN) {
         this.ISBN = ISBN;
     }
 
@@ -79,7 +79,7 @@ public class Book {
     @Override
     public String toString() {
         return String.format(
-                "Book: Title: %s, %d,Price: %.2f, ISBN: %f\n" +
+                "Book: Title: %s, %d,Price: %.2f, ISBN: %s\n" +
                         "%s\n%s\n%s",
                 title, publicationYear, price, ISBN,
                 author, publisher, bookType);
