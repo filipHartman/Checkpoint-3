@@ -47,7 +47,7 @@ public class BookPublisher {
 
     @Override
     public String toString() {
-        return "Publisher: id "+publisherId+ ", " + name + ", "
+        return "Publisher: ID: "+publisherId+ ", " + name + ", "
                 + city + ", "+ country;
     }
 }
