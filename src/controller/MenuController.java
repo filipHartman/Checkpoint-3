@@ -21,7 +21,7 @@ public class MenuController {
             switch (option) {
                 case "1":
                     displayAllBooksController = new DisplayAllBooksController();
-                    ArrayList<Book> books = new DaoBook().importAllBooks();
+                    ArrayList<Book> books = displayAllBooksController.getAllBooksFromDB();
                     displayAllBooksController.showBooksInfo(books);
                     break;
                 case "0":
