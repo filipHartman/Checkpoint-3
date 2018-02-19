@@ -1,24 +1,24 @@
 package model;
 
 public class BookPublisher {
-    private String publsherId;
+    private String publisherId;
     private String name;
     private String city;
     private String country;
 
-    public BookPublisher(String publsherId, String name, String city, String country) {
-        this.publsherId = publsherId;
+    public BookPublisher(String publisherId, String name, String city, String country) {
+        this.publisherId = publisherId;
         this.name = name;
         this.city = city;
         this.country = country;
     }
 
-    public String getPublsherId() {
-        return publsherId;
+    public String getPublisherId() {
+        return publisherId;
     }
 
-    public void setPublsherId(String publsherId) {
-        this.publsherId = publsherId;
+    public void setPublisherId(String publisherId) {
+        this.publisherId = publisherId;
     }
 
     public String getName() {
@@ -47,7 +47,7 @@ public class BookPublisher {
 
     @Override
     public String toString() {
-        return "Publisher: id "+publsherId+ ", " + name + ", "
+        return "Publisher: id "+publisherId+ ", " + name + ", "
                 + city + ", "+ country;
     }
 }
